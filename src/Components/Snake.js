@@ -7,8 +7,8 @@ const Snake = (props) => {
         {props.snakePosition.map((snake, index) => {
 
             const snakecord = {
-                top: `${snake[0]}rem`,
-                left: `${snake[1]}rem`
+                top: `${snake[0]}%`,
+                left: `${snake[1]}%`
             }
           
             
