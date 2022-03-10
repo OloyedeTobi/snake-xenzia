@@ -1,29 +1,23 @@
-
-
-const Snake = (props) => {
-    
-    return( 
-        <div>  
-        {props.snakePosition.map((snake, index) => {
-
-            const snakecord = {
-                top: `${snake[0]}%`,
-                left: `${snake[1]}%`
-            }
-          
-            
-             return(
-                    <div className="snake-body" key={index} style={snakecord}></div>
-                   )
-            }
-           )
-          }   
-           
-    </div>
-    )
-};
-
-           
-
-
-export default Snake;
+const Snake = ({snakePosition}) => (
+    <>
+      {snakePosition.map((snake, index) => {
+          const [row, column] = snake;
+  
+          return (
+            <div
+              className={`snake-body ${index === snakePosition.length - 1 && 'head'}`}
+              key={index}
+              style={{
+                gridRowStart: row + 1,
+                gridColumnStart: column + 1
+              }}
+            />
+          )
+        }
+      )
+      }
+  
+    </>
+  );
+  
+  export default Snake;
