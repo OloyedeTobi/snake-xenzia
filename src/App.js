@@ -5,7 +5,6 @@ import Snake from './Components/Snake';
 import Fruit from './Fruit';
 import Score from './Components/Score';
 import BoundaryToggle from './Components/BoundaryToggle';
-import { FaWindows } from 'react-icons/fa';
 import GameOver from './Components/GameOver';
 
 //Wrap function that wraps value around range min - max if val provided is less than min then max is return and if val provided is greater than max then min is returned
