@@ -119,6 +119,8 @@ class App extends Component {
         return [snakeHead[0] - 1, snakeHead[1]]
       case "down":
         return [snakeHead[0] + 1, snakeHead[1]]
+        default:
+          return [snakeHead[0], snakeHead[1] + 1]
     }
   }
 
@@ -252,6 +254,12 @@ boundaryToggle = () =>{
         isReversed = this.state.direction === 'up'
 
         break;
+
+        default:
+          newDirection = 'right'
+        isReversed = this.state.direction === 'left'
+
+          
     }
 
     if(isDirectionKey){
