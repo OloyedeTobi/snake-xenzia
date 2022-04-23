@@ -1,0 +1,135 @@
+.btn-easy {
+  border: none;
+  font-size: 16px;
+  font-weight: 800;
+  font-family: Arial, Helvetica, sans-serif;
+  color: whitesmoke;
+  background-color: #003D22;
+  outline: none;
+  padding: 0.7em;
+  border-radius: 10px;
+}
+
+.btn-easy:hover {
+  color: #003D22;
+  border: 1px solid #003D22;
+  background-color: whitesmoke;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transition: all ease-in 0.4s;
+  transition: all ease-in 0.4s;
+}
+
+.btn-medium {
+  border: none;
+  font-size: 16px;
+  font-weight: 800;
+  font-family: Arial, Helvetica, sans-serif;
+  color: whitesmoke;
+  background-color: #002916;
+  outline: none;
+  padding: 0.7em;
+  border-radius: 10px;
+}
+
+.btn-medium:hover {
+  color: #002916;
+  border: 1px solid #002916;
+  background-color: whitesmoke;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transition: all ease-in 0.4s;
+  transition: all ease-in 0.4s;
+}
+
+.btn-hard {
+  border: none;
+  font-size: 16px;
+  font-weight: 800;
+  font-family: Arial, Helvetica, sans-serif;
+  color: whitesmoke;
+  background-color: #00140B;
+  outline: none;
+  padding: 0.7em;
+  border-radius: 10px;
+}
+
+.btn-hard:hover {
+  color: #00140B;
+  border: 1px solid #00140B;
+  background-color: whitesmoke;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transition: all ease-in 0.4s;
+  transition: all ease-in 0.4s;
+}
+
+.start-page {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 50%;
+  height: auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+}
+
+.start-container {
+  background-color: white;
+  text-align: center;
+  border-radius: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 20px;
+}
+
+.start-container div p {
+  font-family: "Press Start 2P", cursive;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.snake-image {
+  margin: 2em auto;
+}
+
+.start-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute !important;
+      justify-content: space-around !important;
+  width: 70%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 auto;
+}
+
+@media (max-width: 900) {
+  .btn-easy, .btn-medium, .btn-hard {
+    font-size: 14.5px;
+  }
+  img {
+    size-adjust: 90%;
+  }
+  .start-page {
+    width: 80%;
+  }
+}
+
+@media (max-width: 500) {
+  .btn-easy, .btn-medium, .btn-hard {
+    font-size: 13px;
+  }
+  img {
+    size-adjust: 50%;
+  }
+  .start-page {
+    width: 90%;
+  }
+}
+/*# sourceMappingURL=Startpage.css.map */

@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import "variables";
+
+
+.game-over-container{
+// @include centerDiv;
+
+height:auto;
+box-sizing: border-box;
+margin: 0;
+position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, 50%);
+    animation-name: unfold;
+animation-duration: 1.5s;
+animation-iteration-count: 1;
+}
+
+
+
+
+.game-over-content{
+    
+    color: white;
+    text-align: center; 
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 20px;
+
+}
+
+.scoreBoard{
+    font-size: 1.2em;
+    font-family: 'Roboto', sans-serif;
+    margin: 2em auto;
+    font-weight: 900;
+
+    span{
+        font-size: 2.5em;
+        font-weight: bolder;
+        color: $easyColor;
+    }
+}
+
+.game-over{
+font-family: $gameFont;
+padding-bottom: 2em;
+font-size: 2em;
+color: white;
+animation-name: game-over;
+animation-duration: 2s;
+animation-iteration-count: 1;
+animation-delay: 1.5s;
+}
+
+
+
+
+.game-over-btn-quit{
+    @include button($redish);
+    width: 100px;
+     
+    &:hover{
+        @include hoverEffect($redish);
+    }
+}
+
+.game-over-btn-continue{
+    @include button($easyColor);
+    width: 100px;
+     
+    &:hover{
+        @include hoverEffect($easyColor);
+    }
+}
+
+.start-btn{
+    display: flex;
+    justify-content: space-around !important;
+    width: 50%;
+    align-items: center;
+    margin: 2em auto;
+}
+
+@keyframes game-over {
+    from {color: $redish; margin-top: 10%; font-size: 1em;}
+    to  {color: white; margin-top: 0%; font-size: 2em;}
+}
+
+@keyframes unfold {
+    0% {height: 0%;}
+    25% {height: 25%;}
+    50% {height: 50%;}
+    100% {height: 60%;}
+}

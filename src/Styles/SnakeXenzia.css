@@ -2,6 +2,8 @@
 
 
 *{
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
   }
   
@@ -115,14 +117,12 @@
   .score-point {
     background: rgba(250, 246, 246, 0.938);
     color: rgba(0, 0, 0, 0.9);
-    padding: 0.5rem;
+    padding: 0.6rem;
     border-radius: 0 5px 5px 0;
     font-weight: bolder;
     width: 50px;
     text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
     font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
 
@@ -131,7 +131,7 @@
     
     padding: 0.5em;
     border-radius: 5px;
-    
+
   }
 
   svg.icon .bounded-class{
@@ -159,3 +159,149 @@
      align-self: flex-end;
     }
 
+    .displayNone{
+      display: none
+    }
+
+    .showField{
+      display: grid
+    }
+
+.highScore{
+  position: absolute;
+  right: 0;
+  top: 2em;
+  width: 200px;
+  display: block;
+
+}    
+
+
+
+/* TABLETS */
+
+@media (max-width: 1100px){
+   .snake-field{
+    width: 630px;
+    height: 630px;
+   }
+
+   .container{
+     flex-direction: column;
+   }
+
+   .score-point{
+     width: 45px;
+   }
+
+   .aside{
+     margin: 0 auto;
+   }
+}
+
+@media (max-width: 1000px){
+  .snake-field{
+    width: 580px;
+    height: 580px;
+   }
+   .score-point, .score-title{
+    font-size: 14.5px;
+  } 
+
+  .highScore{
+    top: 0;
+    right: 0;
+    font-size: 13px;
+    width: 200px;
+  }
+}
+
+@media (max-width: 900px){
+  .highScore{
+    top: 0;
+    right: 0;
+    font-size: 13px;
+    width: 200px;
+  }   
+  .score-point, .score-title{
+    font-size: 13px;
+  } 
+
+  .container{
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 800px){
+  .snake-field{
+    width: 500px;
+    height: 500px;
+   }
+
+   .highScore{
+    top: 4;
+    right: 0;
+    font-size: 13px;
+    width: 200px;
+  }  
+} 
+
+  @media (max-width: 500px){
+    .snake-field{
+      width: 450px;
+      height: 450px;
+     }
+  
+     .highScore{
+      top: 4;
+      right: 0;
+      font-size: 13px;
+      width: 200px;
+    }   
+  
+}
+
+@media (max-width: 450px){
+  .snake-field{
+    width: 400px;
+    height: 400px;
+   }
+
+   .highScore{
+    top: 4;
+    right: 0;
+    font-size: 13px;
+    width: 200px;
+  }   
+
+}
+
+@media (max-width: 400px){
+  .snake-field{
+    width: 350px;
+    height: 350px;
+   }
+
+   .highScore{
+    top: 4;
+    right: 0;
+    font-size: 13px;
+    width: 200px;
+  }   
+
+}
+
+@media (max-width: 350px){
+  .snake-field{
+    width: 300px;
+    height: 300px;
+   }
+
+   .highScore{
+    top: 4;
+    right: 0;
+    font-size: 13px;
+    width: 200px;
+  }   
+
+}

@@ -1,102 +1,172 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Sigmar+One&display=swap');
-
-
-.game-over-background{
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 100000000;
-    /* position: fixed;
-    bottom: 50%;
-    left:50%;
-    transform: translate(-50%, -50%); */
-    width: 50%;   
-    height: 100%;
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+.game-over-container {
+  height: auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, 50%);
+          transform: translate(-50%, 50%);
+  -webkit-animation-name: unfold;
+          animation-name: unfold;
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
 }
 
-.game-over-container{
-    background-color: black;
-    box-shadow: 3px 8px 16px black;
-    width: 65%;
-    height: 60%;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; */
-    position: fixed;
-    bottom: 0%;
-    left:45%;
-    transform: translate(-50%, -50%);
-    padding: 2em;
-    border-radius: 10px;
-    animation-name: unfold;
-animation-duration: 1.5s;
-animation-iteration-count: 1;
+.game-over-content {
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 20px;
 }
 
-
-.game-over-content{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-
+.scoreBoard {
+  font-size: 1.2em;
+  font-family: 'Roboto', sans-serif;
+  margin: 2em auto;
+  font-weight: 900;
 }
 
-.scoreBoard{
-    font-size: 1.2em;
-    font-family: sans-serif;
+.scoreBoard span {
+  font-size: 2.5em;
+  font-weight: bolder;
+  color: #003D22;
 }
-.game-over{
-    display: inline-block;
-font-family: 'Press Start 2P', cursive;
-font-family: 'Sigmar One', cursive;
-padding-bottom: 2em;
-font-size: 2em;
-color: white;
-animation-name: game-over;
-animation-duration: 2s;
-animation-iteration-count: 1;
-animation-delay: 1.5s;
 
+.game-over {
+  font-family: "Press Start 2P", cursive;
+  padding-bottom: 2em;
+  font-size: 2em;
+  color: white;
+  -webkit-animation-name: game-over;
+          animation-name: game-over;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
 }
-.white{
+
+.game-over-btn-quit {
+  border: none;
+  font-size: 16px;
+  font-weight: 800;
+  font-family: Arial, Helvetica, sans-serif;
+  color: whitesmoke;
+  background-color: rgba(204, 25, 25, 0.99);
+  outline: none;
+  padding: 0.7em;
+  border-radius: 10px;
+  width: 100px;
+}
+
+.game-over-btn-quit:hover {
+  color: rgba(204, 25, 25, 0.99);
+  border: 1px solid rgba(204, 25, 25, 0.99);
+  background-color: whitesmoke;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transition: all ease-in 0.4s;
+  transition: all ease-in 0.4s;
+}
+
+.game-over-btn-continue {
+  border: none;
+  font-size: 16px;
+  font-weight: 800;
+  font-family: Arial, Helvetica, sans-serif;
+  color: whitesmoke;
+  background-color: #003D22;
+  outline: none;
+  padding: 0.7em;
+  border-radius: 10px;
+  width: 100px;
+}
+
+.game-over-btn-continue:hover {
+  color: #003D22;
+  border: 1px solid #003D22;
+  background-color: whitesmoke;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transition: all ease-in 0.4s;
+  transition: all ease-in 0.4s;
+}
+
+.start-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute !important;
+      justify-content: space-around !important;
+  width: 50%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 2em auto;
+}
+
+@-webkit-keyframes game-over {
+  from {
+    color: rgba(204, 25, 25, 0.99);
+    margin-top: 10%;
+    font-size: 1em;
+  }
+  to {
     color: white;
+    margin-top: 0%;
+    font-size: 2em;
+  }
 }
-
-button{
-    padding-bottom: 10em;
-    border: none;
-    margin: 2em;
-    padding: 0.5em;
-    outline: none;
-    color: white ;
-    font-size: 0.8em;
-    font-weight: bold;
-    font-size: 20px;
-    width: 120px;
-    text-align: center;
-}
-
-button.quit{
-    background-color: rgba(204, 25, 25, 0.99);
-}
-
-button.continue{
-    background-color: green;
-}
-
 
 @keyframes game-over {
-    from {color: rgba(204, 25, 25, 0.99); margin-top: -10%; font-size: 1em;}
-    to  {color: white; margin-top: 0%; font-size: 2em;}
+  from {
+    color: rgba(204, 25, 25, 0.99);
+    margin-top: 10%;
+    font-size: 1em;
+  }
+  to {
+    color: white;
+    margin-top: 0%;
+    font-size: 2em;
+  }
+}
+
+@-webkit-keyframes unfold {
+  0% {
+    height: 0%;
+  }
+  25% {
+    height: 25%;
+  }
+  50% {
+    height: 50%;
+  }
+  100% {
+    height: 60%;
+  }
 }
 
 @keyframes unfold {
-    0% {height: 0%;}
-    25% {height: 25%;}
-    50% {height: 50%;}
-    100% {height: 60%;}
+  0% {
+    height: 0%;
+  }
+  25% {
+    height: 25%;
+  }
+  50% {
+    height: 50%;
+  }
+  100% {
+    height: 60%;
+  }
 }
+/*# sourceMappingURL=GameOver.css.map */

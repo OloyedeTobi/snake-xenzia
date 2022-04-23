@@ -1,0 +1,87 @@
+@import "variables";
+
+.btn-easy{
+    @include button($easyColor);
+    
+     
+     &:hover{
+         @include hoverEffect($easyColor)
+     }
+}
+
+.btn-medium{
+    @include button($mediumColor);
+    
+     
+     &:hover{
+         @include hoverEffect($mediumColor)
+     }
+}
+
+.btn-hard{
+    @include button($hardColor);
+     
+     &:hover{
+         @include hoverEffect($hardColor)
+     }
+}
+
+.start-page{
+    @include centerDiv;
+    width: 50%;
+    height:auto;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.start-container{
+    background-color: white;
+    text-align: center;
+
+   border-radius: 10px;
+   box-sizing: border-box;
+   padding: 20px;
+
+     div{
+         
+         p{
+            font-family: $gameFont;
+            font-size: 30px;
+            font-weight: 700;
+         }
+     }
+}
+
+.snake-image{
+    margin: 2em auto;
+}
+
+.start-btn{
+    display: flex;
+    justify-content: space-around !important;
+    width: 70%;
+    align-items: center;
+    margin: 0 auto;
+}
+
+@media (max-width: 900){
+    .btn-easy, .btn-medium, .btn-hard{
+    @include tab-button;
+    }
+    img{
+        size-adjust: 90%;
+    }
+}
+
+@media (max-width: 500){
+    .btn-easy, .btn-medium, .btn-hard{
+        @include mobile-button;
+    }
+    img{
+        size-adjust: 50%;
+    }
+
+    .start-page{
+        width: 90%;
+    }
+}

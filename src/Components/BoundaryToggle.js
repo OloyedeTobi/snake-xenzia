@@ -1,17 +1,7 @@
 import * as MdIcons  from 'react-icons/md';
 
 
-
 const BoundaryToggle = ({handleToggle,bounded}) =>{
-
-    // const style = {
-    //     fontSize:`1.8em`,
-    //     fontWeight:"bolder",
-    //     borderRadius: "5px",
-    //     padding: "0.8em"
-    // } 
-
-
     return(
     <div className='toggle' >
         <MdIcons.MdChangeCircle 

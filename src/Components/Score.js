@@ -1,6 +1,9 @@
-const Score=({score}) => {
+const Score=({score, title,classN}) => {
      return(
-         <div className="score"><span className="score-title">SCORE: </span><span className="score-point">{score}</span></div>
+         <div className={classN}>
+             <span className="score-title">{title}: </span>
+             <span className="score-point">{score}</span>
+        </div>
      )
 }
 

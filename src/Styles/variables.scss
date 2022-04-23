@@ -1,0 +1,52 @@
+$easyColor: #003D22;
+$mediumColor: #002916;
+$hardColor: #00140B;
+$whitish: whitesmoke;
+$redish: rgba(204, 25, 25, 0.99);
+$gameFont: 'Press Start 2P', cursive;
+
+@mixin button($bgcolor){
+    border: none;
+    font-size: 16px;
+    font-weight: 800;
+    font-family: Arial, Helvetica, sans-serif;
+    color: whitesmoke;
+    background-color: $bgcolor;
+    outline: none;
+    padding: 0.7em;
+    border-radius: 10px;
+}
+
+@mixin flexDisplay($flexdirection) {
+    flex-direction: $flexdirection;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin hoverEffect($color) {
+    color: $color;
+    border: 1px solid $color;
+    background-color: whitesmoke;
+    transform: scale(1.2);
+    transition: all ease-in 0.4s;
+}
+
+@mixin centerDiv{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+
+
+//TABLETS
+@mixin tab-button {
+    font-size: 14.5px;
+}
+
+
+//MOBILE
+@mixin mobile-button {
+    font-size: 13px;
+}
