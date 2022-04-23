@@ -116,9 +116,6 @@
   img {
     size-adjust: 90%;
   }
-  .start-page {
-    width: 80%;
-  }
 }
 
 @media (max-width: 500) {
@@ -126,7 +123,7 @@
     font-size: 13px;
   }
   img {
-    size-adjust: 50%;
+    size-adjust: 60%;
   }
   .start-page {
     width: 90%;

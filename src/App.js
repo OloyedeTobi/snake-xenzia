@@ -130,6 +130,7 @@ return this.sound.eatFoodAudio.play();
         case 300: this.mode = 'hard'; break;
         case 150: this.mode = 'medium'; break;
         case 70: this.mode = 'easy'; break;
+        default: this.mode = 'easy'; 
     }
 
     this.this = speed;
@@ -195,10 +196,10 @@ return this.sound.eatFoodAudio.play();
   
 
   getSpeed = (speed) =>{
-    if(this.state.mode == 'hard'){
+    if(this.state.mode === 'hard'){
       return speed = 150
     }
-    else if(this.state.mode == 'medium'){
+    else if(this.state.mode === 'medium'){
       return speed = 300
     }
     else{
