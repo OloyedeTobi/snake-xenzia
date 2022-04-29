@@ -64,24 +64,21 @@
     margin: 0 auto;
 }
 
-@media (max-width: 900){
+
+
+
+@media (max-width: 800px){
     .btn-easy, .btn-medium, .btn-hard{
-    @include tab-button;
+        @include tab-button;
     }
-    img{
-        size-adjust: 90%;
+    .start-page{
+        width: 90%;    
     }
 }
 
-@media (max-width: 500){
+
+@media screen and (max-width: 480px) {
     .btn-easy, .btn-medium, .btn-hard{
         @include mobile-button;
-    }
-    img{
-        size-adjust: 60%;
-    }
-
-    .start-page{
-        width: 90%;
     }
 }

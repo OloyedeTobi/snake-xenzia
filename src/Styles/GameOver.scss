@@ -95,3 +95,23 @@ animation-delay: 1.5s;
     50% {height: 50%;}
     100% {height: 60%;}
 }
+
+
+@media (max-width: 800px){
+    .game-over-btn-quit,.game-over-btn-continue{
+        @include tab-button;
+        margin-left: 1em;
+    }
+
+    .game-over{
+       
+        padding-bottom: 1em;
+}
+}
+
+
+@media screen and (max-width: 480px) {
+    .game-over-btn-quit, .game-over-btn-continue{
+        @include mobile-button;
+    }
+}

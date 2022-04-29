@@ -109,24 +109,18 @@
   margin: 0 auto;
 }
 
-@media (max-width: 900) {
+@media (max-width: 800px) {
   .btn-easy, .btn-medium, .btn-hard {
     font-size: 14.5px;
   }
-  img {
-    size-adjust: 90%;
+  .start-page {
+    width: 90%;
   }
 }
 
-@media (max-width: 500) {
+@media screen and (max-width: 480px) {
   .btn-easy, .btn-medium, .btn-hard {
     font-size: 13px;
-  }
-  img {
-    size-adjust: 60%;
-  }
-  .start-page {
-    width: 90%;
   }
 }
 /*# sourceMappingURL=Startpage.css.map */

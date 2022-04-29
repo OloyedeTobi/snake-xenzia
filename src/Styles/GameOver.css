@@ -169,4 +169,20 @@
     height: 60%;
   }
 }
+
+@media (max-width: 800px) {
+  .game-over-btn-quit, .game-over-btn-continue {
+    font-size: 14.5px;
+    margin-left: 1em;
+  }
+  .game-over {
+    padding-bottom: 1em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .game-over-btn-quit, .game-over-btn-continue {
+    font-size: 13px;
+  }
+}
 /*# sourceMappingURL=GameOver.css.map */

@@ -25,6 +25,7 @@ const wrap = (min, max, val) => {
   return val
 }
 
+
 //Generate random integer
 const getRandomNumber = (min, max) => {
   return Math.floor(Math.random() * (max - min) + min);
@@ -33,6 +34,8 @@ const getRandomNumber = (min, max) => {
 const generateRandomFruit = (map) => {
   let x = getRandomNumber(0, 20);
   let y = getRandomNumber(0, 20);
+
+
 
   //Ensure that generated fruit position does not already exist as snake node
   while(map[`${x},${y}`]){
@@ -68,6 +71,8 @@ const initialState = {
 
 }
 
+
+
 class App extends Component {
   constructor(){
   super()
@@ -79,6 +84,8 @@ class App extends Component {
   this.allowSwipe = true;
 }
 
+
+//returns sound depending on the soundOn state value
 playGameOver() {
   if(this.state.soundOn && !this.state.startGame){
 this.sound.gameOverAudio.play();
@@ -96,6 +103,8 @@ return this.sound.eatFoodAudio.play();
     return null
   }
 }
+
+
 
   state = initialState 
 
@@ -133,9 +142,8 @@ return this.sound.eatFoodAudio.play();
         default: this.mode = 'easy'; 
     }
 
-    this.this = speed;
+    this.speed = speed;
     
-
     clearInterval(this.interval);
     this.setState(state =>{
        if(this.state.showMenu) {
@@ -158,7 +166,8 @@ return this.sound.eatFoodAudio.play();
     )
   }
 
-  //halts the game 
+  
+  //gameover
   gameOver(){
     clearInterval(this.interval);
 
@@ -186,6 +195,8 @@ return this.sound.eatFoodAudio.play();
  };
  
 
+
+ //gets the best score for each mode
  getBestScore(mode)
  {
  let bestScore = localStorage.getItem(mode + "BestScore");
@@ -228,6 +239,8 @@ boundaryToggle = () =>{
   )
 }
 
+
+//toggle the sound so users can choose to use sound or not
 soundToggle = () =>{
  this.setState(state =>{
     if(this.state.soundOn) {
@@ -246,7 +259,9 @@ soundToggle = () =>{
  )
 }
 
-// to continue playing the current stage mode
+
+
+// to continue playing the game in one lower mode
   continue = () => {
     console.log("start over")
   //  window.location.reload()
@@ -261,15 +276,12 @@ soundToggle = () =>{
        speed: this.getSpeed(speed)
     }))
    
-    return Object.assign({score: 0,
-      speed: 400,
-      snakePosition: [[0, 0], [0, 1], [0,2]],
-      snakePositionMap: initialMap,
-      snakeFruit: generateRandomFruit(initialMap),
-      direction: 'right',
-      bounded: true})
+
   }
 
+
+
+//assigns snake movement for each direction
   getNewPosition(snakePosition, direction){
     const snakeHead = snakePosition[snakePosition.length - 1];
 
@@ -363,6 +375,8 @@ soundToggle = () =>{
     })
   }
 
+
+
   onSwipeMove(position, event)
     {
         if (this.state.showMenu || this.state.gameOver) return;
@@ -383,6 +397,7 @@ soundToggle = () =>{
             }
         }
     }
+
 
   //Checks when user goes in a direction
   handleKeyDown = (e) => {
@@ -463,10 +478,11 @@ soundToggle = () =>{
         }}
      >
         <Swipe
-            className="App"
+            className="snake-board"
             onSwipeMove={this.onSwipeMove}
         > 
-        { this.state.showMenu ?   
+        { this.state.showMenu ? 
+
           <StartPage  startGame={this.startGame}/>
           :
           <main className='snake-board'>
@@ -474,13 +490,12 @@ soundToggle = () =>{
               <div className='child-container'>
                 
                   <>
-                  {this.state.gameOver &&
-                  <GameOver handleContinue={this.continue} score={this.state.score}/>
-                  }
+                  {this.state.gameOver && <GameOver handleContinue={this.continue} score={this.state.score}/> }
                   </>
                   
                   <>
-                  {this.state.startGame && (
+                  { this.state.startGame && 
+                  (
                   <div className='container'>
                     <div className = "snake-field">
                       <Snake snakePosition={this.state.snakePosition}/>
@@ -497,7 +512,8 @@ soundToggle = () =>{
                 <div />
               
                 </div>
-                )}
+                )
+                }
               </>
         
             </div>
@@ -507,7 +523,7 @@ soundToggle = () =>{
         }
       
       </Swipe>
-      </div>
+    </div>
    
 
     );
