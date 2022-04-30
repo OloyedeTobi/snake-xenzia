@@ -117,7 +117,7 @@
   .score-point {
     background: rgba(250, 246, 246, 0.938);
     color: rgba(0, 0, 0, 0.9);
-    padding: 0.6rem;
+    padding: 0.7rem;
     border-radius: 0 5px 5px 0;
     font-weight: bolder;
     width: 50px;
@@ -239,7 +239,7 @@
    }
 
    .highScore{
-    top: 4;
+    top: 20px;
     right: 0;
     font-size: 13px;
     width: 200px;
@@ -252,13 +252,6 @@
       height: 450px;
      }
   
-     .highScore{
-      top: 4;
-      right: 0;
-      font-size: 13px;
-      width: 200px;
-    }   
-  
 }
 
 @media (max-width: 450px){
@@ -267,13 +260,6 @@
     height: 400px;
    }
 
-   .highScore{
-    top: 4;
-    right: 0;
-    font-size: 13px;
-    width: 200px;
-  }   
-
 }
 
 @media (max-width: 400px){
@@ -281,14 +267,6 @@
     width: 350px;
     height: 350px;
    }
-
-   .highScore{
-    top: 4;
-    right: 0;
-    font-size: 13px;
-    width: 200px;
-  }   
-
 }
 
 @media (max-width: 350px){
@@ -296,12 +274,4 @@
     width: 300px;
     height: 300px;
    }
-
-   .highScore{
-    top: 4;
-    right: 0;
-    font-size: 13px;
-    width: 200px;
-  }   
-
 }

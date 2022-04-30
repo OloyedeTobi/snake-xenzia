@@ -197,28 +197,13 @@ return this.sound.eatFoodAudio.play();
 
 
  //gets the best score for each mode
- getBestScore(mode)
- {
+ getBestScore(mode){
  let bestScore = localStorage.getItem(mode + "BestScore");
  bestScore = bestScore === null ? 0 : parseInt(bestScore);
  return bestScore;
  }
 
   
-
-  getSpeed = (speed) =>{
-    if(this.state.mode === 'hard'){
-      return speed = 150
-    }
-    else if(this.state.mode === 'medium'){
-      return speed = 300
-    }
-    else{
-      return speed = 400
-    }
-  }
-
-
 //toggle the boundary so users can choose to use a boundary or not
  
 boundaryToggle = () =>{
@@ -252,32 +237,53 @@ soundToggle = () =>{
     return{
       ...state,
       soundOn: !this.state.soundOn
-      }
-
-      
+      }     
   }
  )
 }
 
 
+getSpeed = () =>{
+  if(this.state.mode === 'hard'){
+    return 150
+  }
+  else if(this.state.mode === 'medium'){
+    return 300
+  }
+  else{
+    return 400
+  }
+}
 
 // to continue playing the game in one lower mode
   continue = () => {
     console.log("start over")
   //  window.location.reload()
-  
-    this.setState((state,speed) =>({
+   
+    this.setState((state) =>({
       ...state,
+      mode: this.state.mode,
       showMenu: false,
        gameOver: false,
        startGame: true,
        score: 0,
        snakePosition: [[0, 0], [0, 1], [0,2]],
-       speed: this.getSpeed(speed)
+       speed: this.getSpeed()
     }))
    
 
   }
+
+
+  quit = () => {
+    this.setState((state) =>({
+      ...state,
+      showMenu: true,
+       gameOver: false,
+       startGame: false
+    }))
+  }
+
 
 
 
@@ -377,26 +383,7 @@ soundToggle = () =>{
 
 
 
-  onSwipeMove(position, event)
-    {
-        if (this.state.showMenu || this.state.gameOver) return;
-
-        let tolerance = 2;
-        let x = position.x;
-        let y = position.y;
-
-        if (this.allowSwipe)
-        {
-            if (Math.abs(x) > tolerance || Math.abs(y) > tolerance)
-            {
-                this.allowSwipe = false;
-                if (Math.abs(y) > Math.abs(x))
-                    this.keyListner({ keyCode: y > 0 ? 40 : 38 });
-                else
-                    this.keyListner({ keyCode: x > 0 ? 39 : 37 });
-            }
-        }
-    }
+  
 
 
   //Checks when user goes in a direction
@@ -409,7 +396,11 @@ soundToggle = () =>{
 
     let newDirection;
     let isReversed = false;
-    switch (e.keyCode) {
+
+    if (this.state.gameOver || this.state.showMenu) return;
+
+    let keyCode = e.keyCode;
+    switch (keyCode) {
       case  37:
         newDirection = 'left';
         isReversed = this.state.direction === 'right';
@@ -463,15 +454,35 @@ soundToggle = () =>{
         this.interval = setInterval(() => this.move(), this.state.speed)
       })
     }
-  }
+  };
 
-  
+
+  onSwipeMove(position, e)
+  {
+      if (this.state.showMenu || this.state.gameOver) return;
+
+      let tolerance = 2;
+      let x = position.x;
+      let y = position.y;
+
+      if (this.allowSwipe)
+      {
+          if (Math.abs(x) > tolerance || Math.abs(y) > tolerance)
+          {
+              this.allowSwipe = false;
+              if (Math.abs(y) > Math.abs(x))
+                  this.handleKeyDown({ keyCode: y > 0 ? 40 : 38 });
+              else
+                  this.handleKeyDown({ keyCode: x > 0 ? 39 : 37 });
+          }
+      }
+  } 
     
 
   render() {
     return (
     
-      <div className='App'
+      <div className ='App'
       onTouchStart={() =>
         {
             this.allowSwipe = true;
@@ -490,7 +501,7 @@ soundToggle = () =>{
               <div className='child-container'>
                 
                   <>
-                  {this.state.gameOver && <GameOver handleContinue={this.continue} score={this.state.score}/> }
+                  {this.state.gameOver && <GameOver handleContinue={this.continue} score={this.state.score} handleQuit={this.quit}/> }
                   </>
                   
                   <>
