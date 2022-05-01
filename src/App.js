@@ -457,26 +457,70 @@ getSpeed = () =>{
   };
 
 
-  onSwipeMove(position, e)
-  {
-      if (this.state.showMenu || this.state.gameOver) return;
+  // onSwipeMove(position, e){
+  //     // if (this.state.showMenu || this.state.gameOver) return;
 
-      let tolerance = 2;
-      let x = position.x;
-      let y = position.y;
+  //     let tolerance = 2;
+  //     let x = position.x;
+  //     let y = position.y;
 
-      if (this.allowSwipe)
-      {
-          if (Math.abs(x) > tolerance || Math.abs(y) > tolerance)
-          {
-              this.allowSwipe = false;
-              if (Math.abs(y) > Math.abs(x))
-                  this.handleKeyDown({ keyCode: y > 0 ? 40 : 38 });
-              else
-                  this.handleKeyDown({ keyCode: x > 0 ? 39 : 37 });
-          }
-      }
-  } 
+  //     if (this.allowSwipe)
+  //     {
+  //       console.log('left swipe')
+  //         if (Math.abs(x) > tolerance || Math.abs(y) > tolerance)
+  //         {
+  //             this.allowSwipe = true;
+  //             if (Math.abs(y) > Math.abs(x)){
+  //               console.log('left swipe')
+  //                 this.handleKeyDown({ keyCode: y > 0 ? 40 : 38 });
+  //             }
+  //             else{
+  //                 this.handleKeyDown({keyCode: x > 0 ? 39 : 37 });
+  //                 console.log('left swipe')
+  //             }
+  //         }
+  //     }
+  // } 
+
+
+  onSwipeLeft = () => {
+    console.log('left swipe')
+    if (this.state.showMenu || this.state.gameOver) return;
+
+    this.handleKeyDown(37);
+      this.move()
+      this.interval = setInterval(() => this.move(), this.state.speed)
+    
+  }
+
+  
+
+  onSwipeRight = () =>{
+    console.log('right swipe')
+    if (this.state.showMenu || this.state.gameOver) return;
+    this.handleKeyDown(39);
+      this.move()
+      this.interval = setInterval(() => this.move(), this.state.speed)
+    
+  }
+
+  onSwipeUp = () =>{
+    console.log('up swipe')
+    if (this.state.showMenu || this.state.gameOver) return;
+    this.handleKeyDown(38);
+      this.move()
+      this.interval = setInterval(() => this.move(), this.state.speed)
+    
+  }
+
+  onSwipeDown = () =>{
+    console.log('down swipe')
+    if (this.state.showMenu || this.state.gameOver) return;
+    this.handleKeyDown(40);
+      this.move()
+      this.interval = setInterval(() => this.move(), this.state.speed)
+    
+  }
     
 
   render() {
@@ -489,8 +533,10 @@ getSpeed = () =>{
         }}
      >
         <Swipe
-            className="snake-board"
-            onSwipeMove={this.onSwipeMove}
+            onSwipeLeft={this.onSwipeLeft}
+            onSwipeRight={this.onSwipeRight}
+            onSwipeDown = {this.onSwipeDown}
+            onSwipeUp = {this.onSwipeUp}
         > 
         { this.state.showMenu ? 
 

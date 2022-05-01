@@ -217,6 +217,9 @@
 }
 
 @media (max-width: 900px){
+  body{
+    height: 100vh;
+  }
   .highScore{
     top: 0;
     right: 0;
