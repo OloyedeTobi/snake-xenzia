@@ -61,6 +61,7 @@ animation-delay: 1.5s;
 .game-over-btn-quit{
     @include button($redish);
     width: 100px;
+    border-radius: 0%;
      
     &:hover{
         @include hoverEffect($redish);
@@ -70,6 +71,7 @@ animation-delay: 1.5s;
 .game-over-btn-continue{
     @include button($easyColor);
     width: 100px;
+    border-radius: 0%;
      
     &:hover{
         @include hoverEffect($easyColor);

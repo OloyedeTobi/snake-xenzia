@@ -9,7 +9,6 @@ import GameOver from './Components/GameOver';
 import StartPage from './Components/StartPage';
 import SoundToggle from './Components/SoundToggle';
 import {gameSounds} from './Components/Sound';
-import Swipe from "react-easy-swipe";
 // import Countdown from './Components/Countdown';
 
 
@@ -67,8 +66,8 @@ const initialState = {
   showMenu:true,
   mode: 'easy',
   soundOn: true,
-  highScore: 0
-
+  highScore: 0,
+  isMobile: false
 }
 
 
@@ -111,15 +110,12 @@ return this.sound.eatFoodAudio.play();
   componentDidMount() {
     this.interval = setInterval(() => this.move(), this.state.speed)
     document.addEventListener('keydown', this.handleKeyDown);
-    // this.toggle = this.setState(() => this.boundaryToggle());
-    
   }
 
   componentWillUnmount(){
     this.interval = clearInterval(() => this.move(), this.state.speed)
     document.removeEventListener('keydown', this.handleKeyDown);  
   }
-
 
 
 //increase score 
@@ -262,11 +258,11 @@ getSpeed = () =>{
    
     this.setState((state) =>({
       ...state,
+      score: 0,
       mode: this.state.mode,
       showMenu: false,
        gameOver: false,
        startGame: true,
-       score: 0,
        snakePosition: [[0, 0], [0, 1], [0,2]],
        speed: this.getSpeed()
     }))
@@ -278,6 +274,7 @@ getSpeed = () =>{
   quit = () => {
     this.setState((state) =>({
       ...state,
+       score: 0,
       showMenu: true,
        gameOver: false,
        startGame: false
@@ -456,43 +453,6 @@ getSpeed = () =>{
     }
   };
 
-
-  // onSwipeMove(position, e){
-  //     // if (this.state.showMenu || this.state.gameOver) return;
-
-  //     let tolerance = 2;
-  //     let x = position.x;
-  //     let y = position.y;
-
-  //     if (this.allowSwipe)
-  //     {
-  //       console.log('left swipe')
-  //         if (Math.abs(x) > tolerance || Math.abs(y) > tolerance)
-  //         {
-  //             this.allowSwipe = true;
-  //             if (Math.abs(y) > Math.abs(x)){
-  //               console.log('left swipe')
-  //                 this.handleKeyDown({ keyCode: y > 0 ? 40 : 38 });
-  //             }
-  //             else{
-  //                 this.handleKeyDown({keyCode: x > 0 ? 39 : 37 });
-  //                 console.log('left swipe')
-  //             }
-  //         }
-  //     }
-  // } 
-
-
-  onSwipeLeft = () => {
-    console.log('left swipe')
-    if (this.state.showMenu || this.state.gameOver) return;
-
-    this.handleKeyDown(37);
-      this.move()
-      this.interval = setInterval(() => this.move(), this.state.speed)
-    
-  }
-
   
 
   onSwipeRight = () =>{
@@ -504,40 +464,13 @@ getSpeed = () =>{
     
   }
 
-  onSwipeUp = () =>{
-    console.log('up swipe')
-    if (this.state.showMenu || this.state.gameOver) return;
-    this.handleKeyDown(38);
-      this.move()
-      this.interval = setInterval(() => this.move(), this.state.speed)
-    
-  }
-
-  onSwipeDown = () =>{
-    console.log('down swipe')
-    if (this.state.showMenu || this.state.gameOver) return;
-    this.handleKeyDown(40);
-      this.move()
-      this.interval = setInterval(() => this.move(), this.state.speed)
-    
-  }
+  
     
 
   render() {
     return (
     
-      <div className ='App'
-      onTouchStart={() =>
-        {
-            this.allowSwipe = true;
-        }}
-     >
-        <Swipe
-            onSwipeLeft={this.onSwipeLeft}
-            onSwipeRight={this.onSwipeRight}
-            onSwipeDown = {this.onSwipeDown}
-            onSwipeUp = {this.onSwipeUp}
-        > 
+      <div className ='App'>
         { this.state.showMenu ? 
 
           <StartPage  startGame={this.startGame}/>
@@ -579,7 +512,6 @@ getSpeed = () =>{
           </main>
         }
       
-      </Swipe>
     </div>
    
 

@@ -8,14 +8,15 @@
   outline: none;
   padding: 0.7em;
   border-radius: 10px;
+  border-radius: 0%;
 }
 
 .btn-easy:hover {
   color: #003D22;
   border: 1px solid #003D22;
   background-color: whitesmoke;
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
   -webkit-transition: all ease-in 0.4s;
   transition: all ease-in 0.4s;
 }
@@ -30,14 +31,15 @@
   outline: none;
   padding: 0.7em;
   border-radius: 10px;
+  border-radius: 0%;
 }
 
 .btn-medium:hover {
   color: #002916;
   border: 1px solid #002916;
   background-color: whitesmoke;
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
   -webkit-transition: all ease-in 0.4s;
   transition: all ease-in 0.4s;
 }
@@ -52,14 +54,15 @@
   outline: none;
   padding: 0.7em;
   border-radius: 10px;
+  border-radius: 0%;
 }
 
 .btn-hard:hover {
   color: #00140B;
   border: 1px solid #00140B;
   background-color: whitesmoke;
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
   -webkit-transition: all ease-in 0.4s;
   transition: all ease-in 0.4s;
 }
@@ -70,20 +73,25 @@
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  width: 50%;
-  height: auto;
+  width: 40%;
+  height: 60%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin: 0;
 }
 
 .start-container {
-  background-color: white;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#e2f6e2), to(#befabe));
+  background-image: linear-gradient(to bottom right, #e2f6e2, #befabe);
   text-align: center;
+  -webkit-box-shadow: 1px 1px 8px whitesmoke;
+          box-shadow: 1px 1px 8px whitesmoke;
   border-radius: 10px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 20px;
+  height: 100%;
+  border-radius: 0%;
 }
 
 .start-container div p {
@@ -93,20 +101,22 @@
 }
 
 .snake-image {
-  margin: 2em auto;
+  margin: 4em auto;
 }
 
 .start-btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute !important;
-      justify-content: space-around !important;
-  width: 70%;
+  -webkit-box-pack: center !important;
+      -ms-flex-pack: center !important;
+          justify-content: center !important;
+  width: 100%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   margin: 0 auto;
+  border-radius: 0%;
 }
 
 @media (max-width: 800px) {

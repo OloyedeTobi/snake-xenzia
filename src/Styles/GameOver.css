@@ -66,14 +66,15 @@
   padding: 0.7em;
   border-radius: 10px;
   width: 100px;
+  border-radius: 0%;
 }
 
 .game-over-btn-quit:hover {
   color: rgba(204, 25, 25, 0.99);
   border: 1px solid rgba(204, 25, 25, 0.99);
   background-color: whitesmoke;
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
   -webkit-transition: all ease-in 0.4s;
   transition: all ease-in 0.4s;
 }
@@ -89,14 +90,15 @@
   padding: 0.7em;
   border-radius: 10px;
   width: 100px;
+  border-radius: 0%;
 }
 
 .game-over-btn-continue:hover {
   color: #003D22;
   border: 1px solid #003D22;
   background-color: whitesmoke;
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
   -webkit-transition: all ease-in 0.4s;
   transition: all ease-in 0.4s;
 }

@@ -2,6 +2,7 @@
 
 .btn-easy{
     @include button($easyColor);
+    border-radius: 0%;
     
      
      &:hover{
@@ -11,6 +12,7 @@
 
 .btn-medium{
     @include button($mediumColor);
+    border-radius: 0%;
     
      
      &:hover{
@@ -20,6 +22,7 @@
 
 .btn-hard{
     @include button($hardColor);
+    border-radius: 0%;
      
      &:hover{
          @include hoverEffect($hardColor)
@@ -28,19 +31,21 @@
 
 .start-page{
     @include centerDiv;
-    width: 50%;
-    height:auto;
+    width: 40%;
+    height: 60%;
     box-sizing: border-box;
     margin: 0;
 }
 
 .start-container{
-    background-color: white;
+    background-image: linear-gradient(to bottom right, rgba(226, 246, 226, 1.0), rgba(190, 250, 190, 1.0));
     text-align: center;
-
+    box-shadow: 1px 1px 8px whitesmoke;
    border-radius: 10px;
    box-sizing: border-box;
    padding: 20px;
+   height:100%;
+   border-radius: 0%;
 
      div{
          
@@ -53,15 +58,16 @@
 }
 
 .snake-image{
-    margin: 2em auto;
+    margin: 4em auto;
 }
 
 .start-btn{
     display: flex;
-    justify-content: space-around !important;
-    width: 70%;
+    justify-content: center !important;
+    width: 100%;
     align-items: center;
     margin: 0 auto;
+    border-radius: 0%;
 }
 
 
