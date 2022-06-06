@@ -1,0 +1,15 @@
+@import 'variables';
+
+.not-found-con{
+   @include flexDisplay(column);
+   height: 100vh;
+   color: white;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   padding: 2em;
+
+    div{
+        h1{
+            text-align: center;
+        }
+    }
+}

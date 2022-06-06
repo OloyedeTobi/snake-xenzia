@@ -9,6 +9,7 @@ import GameOver from './Components/GameOver';
 import StartPage from './Components/StartPage';
 import SoundToggle from './Components/SoundToggle';
 import {gameSounds} from './Components/Sound';
+import {NotFound} from './Components/NotAvailable';
 // import Countdown from './Components/Countdown';
 
 
@@ -67,6 +68,7 @@ const initialState = {
   mode: 'easy',
   soundOn: true,
   highScore: 0,
+  windowWidth: 0,
   isMobile: false
 }
 
@@ -82,6 +84,8 @@ class App extends Component {
   }
   this.allowSwipe = true;
 }
+
+
 
 
 //returns sound depending on the soundOn state value
@@ -110,13 +114,24 @@ return this.sound.eatFoodAudio.play();
   componentDidMount() {
     this.interval = setInterval(() => this.move(), this.state.speed)
     document.addEventListener('keydown', this.handleKeyDown);
+    this.setDimension();
+    window.addEventListener('resize', this.setDimension)
   }
 
   componentWillUnmount(){
     this.interval = clearInterval(() => this.move(), this.state.speed)
-    document.removeEventListener('keydown', this.handleKeyDown);  
+    document.removeEventListener('keydown', this.handleKeyDown); 
+    window.removeEventListener("resize", this.setDimension); 
   }
 
+
+  setDimension(){
+    this.setState(state => 
+      ({...state,
+       windowWidth: window.innerWidth
+      })
+    )
+  }
 
 //increase score 
   increaseScore(){
@@ -155,11 +170,8 @@ return this.sound.eatFoodAudio.play();
          showMenu: false,
          speed: speed,
          mode: mode
-         }
- 
-         
-     }
-    )
+         }     
+      })
   }
 
   
@@ -214,10 +226,7 @@ boundaryToggle = () =>{
        ...state,
        bounded: !this.state.bounded
        }
-
-       
-   }
-  )
+  });
 }
 
 
@@ -234,8 +243,7 @@ soundToggle = () =>{
       ...state,
       soundOn: !this.state.soundOn
       }     
-  }
- )
+  });
 }
 
 
@@ -287,7 +295,6 @@ getSpeed = () =>{
 //assigns snake movement for each direction
   getNewPosition(snakePosition, direction){
     const snakeHead = snakePosition[snakePosition.length - 1];
-
     switch (direction){
       case "right":
         return [snakeHead[0], snakeHead[1] + 1]
@@ -302,8 +309,6 @@ getSpeed = () =>{
     }
   }
 
-
-  
 
   move(){
     this.setState(state => {
@@ -337,8 +342,6 @@ getSpeed = () =>{
    
 
       if(this.state.snakePositionMap[`${newPosition[0]},${newPosition[1]}`]){
-        
-
         this.gameOver()
         return Object.assign({
           speed: 400,
@@ -380,8 +383,6 @@ getSpeed = () =>{
 
 
 
-  
-
 
   //Checks when user goes in a direction
   handleKeyDown = (e) => {
@@ -401,33 +402,27 @@ getSpeed = () =>{
       case  37:
         newDirection = 'left';
         isReversed = this.state.direction === 'right';
-
         break;
 
       case 38:
         newDirection = 'up'
         isReversed = this.state.direction === 'down'
-
         break;
 
       case 39 :
         newDirection = 'right'
         isReversed = this.state.direction === 'left'
-
         break;
 
 
       case 40:
         newDirection = 'down'
         isReversed = this.state.direction === 'up'
-
         break;
 
         default:
           newDirection = 'right'
         isReversed = this.state.direction === 'left'
-
-          
     }
 
     
@@ -471,6 +466,11 @@ getSpeed = () =>{
     return (
     
       <div className ='App'>
+      {this.state.windowWidth < 900 ? 
+      <NotFound mobileWidth = {this.state.windowWidth} /> 
+      : 
+      (
+       <>
         { this.state.showMenu ? 
 
           <StartPage  startGame={this.startGame}/>
@@ -479,11 +479,15 @@ getSpeed = () =>{
             <>   
               <div className='child-container'>
                 
-                  <>
-                  {this.state.gameOver && <GameOver handleContinue={this.continue} score={this.state.score} handleQuit={this.quit}/> }
+                 <>
+                    {
+                    this.state.gameOver
+                     && 
+                    <GameOver handleContinue={this.continue} score={this.state.score} handleQuit={this.quit}/>
+                   }
                   </>
                   
-                  <>
+                <>
                   { this.state.startGame && 
                   (
                   <div className='container'>
@@ -494,14 +498,12 @@ getSpeed = () =>{
                     <Score score={this.state.highScore} title = {"HIGH SCORE"} classN = {"highScore"} />
                   
                   
-                  <div className='aside'>
-                    <Score score={this.state.score} title = {"SCORE"} classN = {"score"} />
-                    <BoundaryToggle handleToggle={this.boundaryToggle} bounded={this.state.bounded}/>
-                    <SoundToggle handleToggle={this.soundToggle} soundOn = {this.state.soundOn}/>
-                  </div>
-                <div />
-              
-                </div>
+                    <div className='aside'>
+                      <Score score={this.state.score} title = {"SCORE"} classN = {"score"} />
+                      <BoundaryToggle handleToggle={this.boundaryToggle} bounded={this.state.bounded}/>
+                      <SoundToggle handleToggle={this.soundToggle} soundOn = {this.state.soundOn}/>
+                    </div>
+                 </div>
                 )
                 }
               </>
@@ -511,11 +513,12 @@ getSpeed = () =>{
             </>
           </main>
         }
-      
+      </>
+      )}
     </div>
-   
 
-    );
+    ); 
+
   }
 }
 
