@@ -69,6 +69,7 @@ const initialState = {
   soundOn: true,
   highScore: 0,
   windowWidth: 0,
+  windowHeight: 0,
   isMobile: false
 }
 
@@ -128,10 +129,16 @@ return this.sound.eatFoodAudio.play();
   setDimension(){
     this.setState(state => 
       ({...state,
-       windowWidth: window.innerWidth
+       windowWidth: window.innerWidth,
+       windowHeight: window.innerHeight
       })
     )
   }
+
+  //define width and height
+  fieldWidth = this.state.windowWidth
+  fieldHeight = this.state.windowHeight
+
 
 //increase score 
   increaseScore(){
@@ -491,7 +498,8 @@ getSpeed = () =>{
                   { this.state.startGame && 
                   (
                   <div className='container'>
-                    <div className = "snake-field">
+                    {this.fieldHeight}
+                    <div className = "snake-field" style={{width: `${this.state.windowHeight}px`, height : `${this.state.windowHeight - 20 }px`}}>
                       <Snake snakePosition={this.state.snakePosition}/>
                       <Fruit position={this.state.snakeFruit}/>
                     </div>

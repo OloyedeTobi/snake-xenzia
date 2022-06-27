@@ -2,14 +2,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 .game-over-container {
   height: auto;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0;
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, 50%);
-          transform: translate(-50%, 50%);
+  transform: translate(-50%, 50%);
   -webkit-animation-name: unfold;
           animation-name: unfold;
   -webkit-animation-duration: 1.5s;
@@ -22,18 +20,16 @@
   color: white;
   text-align: center;
   border-radius: 10px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   padding: 20px;
 }
 
 .scoreBoard {
   font-size: 1.2em;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   margin: 2em auto;
   font-weight: 900;
 }
-
 .scoreBoard span {
   font-size: 2.5em;
   font-weight: bolder;
@@ -68,14 +64,11 @@
   width: 100px;
   border-radius: 0%;
 }
-
 .game-over-btn-quit:hover {
   color: rgba(204, 25, 25, 0.99);
   border: 1px solid rgba(204, 25, 25, 0.99);
   background-color: whitesmoke;
-  -webkit-transform: scale(1.05);
-          transform: scale(1.05);
-  -webkit-transition: all ease-in 0.4s;
+  transform: scale(1.05);
   transition: all ease-in 0.4s;
 }
 
@@ -92,27 +85,19 @@
   width: 100px;
   border-radius: 0%;
 }
-
 .game-over-btn-continue:hover {
   color: #003D22;
   border: 1px solid #003D22;
   background-color: whitesmoke;
-  -webkit-transform: scale(1.05);
-          transform: scale(1.05);
-  -webkit-transition: all ease-in 0.4s;
+  transform: scale(1.05);
   transition: all ease-in 0.4s;
 }
 
 .start-btn {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute !important;
-      justify-content: space-around !important;
+  justify-content: space-around !important;
   width: 50%;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   margin: 2em auto;
 }
 
@@ -141,7 +126,6 @@
     font-size: 2em;
   }
 }
-
 @-webkit-keyframes unfold {
   0% {
     height: 0%;
@@ -156,7 +140,6 @@
     height: 60%;
   }
 }
-
 @keyframes unfold {
   0% {
     height: 0%;
@@ -171,20 +154,18 @@
     height: 60%;
   }
 }
-
 @media (max-width: 800px) {
   .game-over-btn-quit, .game-over-btn-continue {
     font-size: 14.5px;
     margin-left: 1em;
   }
+
   .game-over {
     padding-bottom: 1em;
   }
 }
-
 @media screen and (max-width: 480px) {
   .game-over-btn-quit, .game-over-btn-continue {
     font-size: 13px;
   }
-}
-/*# sourceMappingURL=GameOver.css.map */
+}/*# sourceMappingURL=GameOver.css.map */

@@ -31,8 +31,8 @@
   .snake-field {
     background-image: url(/assets/field.jpg);
     border-radius: 5px;
-    width: 700px;
-    height: 700px;
+    /* width: 700px;
+    height: 700px; */
     -webkit-filter: brightness(50%);
             filter: brightness(50%);
     -webkit-box-shadow: 4px 4px 16px 4px rgba(0, 0, 0, 0.99);

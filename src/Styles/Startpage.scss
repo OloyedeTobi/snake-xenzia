@@ -32,15 +32,14 @@
 .start-page{
     @include centerDiv;
     width: 40%;
-    height: 60%;
+    height: 70%;
     box-sizing: border-box;
     margin: 0;
 }
 
 .start-container{
-    background-image: linear-gradient(to bottom right, rgba(226, 246, 226, 1.0), rgba(190, 250, 190, 1.0));
+    background-image: linear-gradient(to bottom right, rgba(226, 246, 226, 1.0), rgb(230, 252, 230));
     text-align: center;
-    box-shadow: 1px 1px 8px whitesmoke;
    border-radius: 10px;
    box-sizing: border-box;
    padding: 20px;
