@@ -1,6 +1,6 @@
 ## OVERVIEW
 
-This game functions similarly to the native snake xenzia game, in which a snake eats a fruit and grows in size with each fruit it swallows. The snake dies if it collides with the boundary or eats any of its own body parts (which means game over).
+This game functions similarly to the native snake xenzia game, where a snake eats a fruit and grows in size with each fruit it swallows. The snake dies if it collides with the boundary or eats any of its own body parts (which means game over).
 
 
 
@@ -8,6 +8,8 @@ This game functions similarly to the native snake xenzia game, in which a snake 
 - **GAME MODE**
 
 You have the option of selecting the game mode you want to play in. There are three difficulty levels: `easy`, `medium`, and `hard`, with each mode differing in snake speed.
+
+
 
 - **BOUNDARY TOGGLE**
 
