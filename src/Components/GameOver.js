@@ -10,7 +10,7 @@ const GameOver = ({handleContinue,score, handleQuit}) =>{
                     <div className='white scoreBoard'>Your Score : <span> {score} </span></div>
                     <div className='start-btn'>
                         
-                        <button className='game-over-btn-continue' onClick={handleContinue}>continue</button>
+                        <button className='game-over-btn-continue' onClick={handleContinue}>Continue</button>
                         <button className='game-over-btn-quit' onClick={handleQuit}>Quit</button>
                     </div>
                 </div>

@@ -11,7 +11,7 @@ const Snake = ({snakePosition}) => (
                 gridRowStart: row + 1,
                 gridColumnStart: column + 1
               }}
-            />
+            /> 
           )
         }
       )
