@@ -1,5 +1,5 @@
 
-import {Component} from 'react';
+import { Component } from 'react';
 import './Styles/SnakeXenzia.css';
 import Snake from './Components/Snake';
 import Fruit from './Fruit';
@@ -14,7 +14,9 @@ import {NotFound} from './Components/NotAvailable';
 
 
 
-//Wrap function that wraps value around range min - max if val provided is less than min then max is return and if val provided is greater than max then min is returned
+/*Wrap function that wraps value around range min - max 
+ if val provided is less than min then max is returned
+ and if val provided is greater than max then min is returned */
 const wrap = (min, max, val) => {
   if(val < min){
     return max
@@ -31,11 +33,10 @@ const getRandomNumber = (min, max) => {
   return Math.floor(Math.random() * (max - min) + min);
 };
 
+
 const generateRandomFruit = (map) => {
   let x = getRandomNumber(0, 20);
   let y = getRandomNumber(0, 20);
-
-
 
   //Ensure that generated fruit position does not already exist as snake node
   while(map[`${x},${y}`]){
@@ -76,23 +77,21 @@ const initialState = {
 
 
 class App extends Component {
-  constructor(){
-  super()
-  this.sound = {
+
+   sound = {
     gameOverAudio: new Audio(gameSounds.gameOver),
     eatFoodAudio: new Audio(gameSounds.eatFood),
     
   }
-  this.allowSwipe = true;
-}
 
 
+state = initialState 
 
 
 //returns sound depending on the soundOn state value
 playGameOver() {
-  if(this.state.soundOn && !this.state.startGame){
-this.sound.gameOverAudio.play();
+  if(this.state.soundOn && this.state.gameOver){
+      this.sound.gameOverAudio.play();
   }
   else{
     return null
@@ -101,7 +100,7 @@ this.sound.gameOverAudio.play();
 
 playEatFood() {
   if(this.state.soundOn && this.state.startGame){
-return this.sound.eatFoodAudio.play();
+     return this.sound.eatFoodAudio.play();
   }
   else{
     return null
@@ -109,8 +108,6 @@ return this.sound.eatFoodAudio.play();
 }
 
 
-
-  state = initialState 
 
   componentDidMount() {
     this.interval = setInterval(() => this.move(), this.state.speed)
@@ -126,7 +123,7 @@ return this.sound.eatFoodAudio.play();
   }
 
 
-  setDimension(){
+  setDimension = () =>{
     this.setState(state => 
       ({...state,
        windowWidth: window.innerWidth,
@@ -135,9 +132,6 @@ return this.sound.eatFoodAudio.play();
     )
   }
 
-  //define width and height
-  fieldWidth = this.state.windowWidth
-  fieldHeight = this.state.windowHeight
 
 
 //increase score 
@@ -150,7 +144,7 @@ return this.sound.eatFoodAudio.play();
   }
 
   //initial conditions when a new game starts
-  startGame = (speed, mode) =>{
+  startGame = (speed, mode) => {
 
     switch (speed)
     {
@@ -256,20 +250,19 @@ soundToggle = () =>{
 
 getSpeed = () =>{
   if(this.state.mode === 'hard'){
-    return 150
+    return 70
   }
   else if(this.state.mode === 'medium'){
-    return 300
+    return 150
   }
   else{
-    return 400
+    return 300
   }
 }
 
-// to continue playing the game in one lower mode
+// to continue playing the game in the crrent mode
   continue = () => {
     console.log("start over")
-  //  window.location.reload()
    
     this.setState((state) =>({
       ...state,
@@ -333,14 +326,16 @@ getSpeed = () =>{
 
         this.gameOver()
         return Object.assign({
-          speed: 400,
+          speed: 300,
           snakePosition: [[0, 0], [0, 1], [0,2]],
           snakePositionMap: initialMap,
           snakeFruit: generateRandomFruit(initialMap),
           direction: null,
-          bounded: true})
+          bounded: true
+        })
       }
     }
+
     else{
        newPosition[0] = wrap(0, 19, newPosition[0])
       newPosition[1] = wrap(0, 19, newPosition[1])
@@ -351,7 +346,7 @@ getSpeed = () =>{
       if(this.state.snakePositionMap[`${newPosition[0]},${newPosition[1]}`]){
         this.gameOver()
         return Object.assign({
-          speed: 400,
+          speed: 300,
           snakePosition: [[0, 0], [0, 1], [0,2]],
           snakePositionMap: initialMap,
           snakeFruit: generateRandomFruit(initialMap),
@@ -368,6 +363,7 @@ getSpeed = () =>{
       if(newPosition[0] === this.state.snakeFruit[0] && newPosition[1] === this.state.snakeFruit[1]){
         this.increaseScore();
         this.playEatFood();
+
         //If head matches snake position then do not remove tail
         return {
           ...state,
@@ -455,18 +451,6 @@ getSpeed = () =>{
     }
   };
 
-  
-
-  onSwipeRight = () =>{
-    console.log('right swipe')
-    if (this.state.showMenu || this.state.gameOver) return;
-    this.handleKeyDown(39);
-      this.move()
-      this.interval = setInterval(() => this.move(), this.state.speed)
-    
-  }
-
-  
     
 
   render() {
@@ -482,7 +466,7 @@ getSpeed = () =>{
 
           <StartPage  startGame={this.startGame}/>
           :
-          <main className='snake-board'>
+           <main className='snake-board'>
             <>   
               <div className='child-container'>
                 
